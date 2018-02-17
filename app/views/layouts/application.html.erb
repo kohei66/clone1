@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clone1</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">Clone1</a>
+      </div>
+    </nav>
+  </header>
+  <%= yield %>
+  <footer class="container-fluid navbar navbar-default">
+      <a class="navbar-brand" href="#">clone1 2018@kk</a>
+  </footer>
+</body>
+</html>

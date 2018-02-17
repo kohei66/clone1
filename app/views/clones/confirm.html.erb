@@ -1,0 +1,13 @@
+<h3>以下の内容で、投稿しますか？</h3>
+
+<%= form_with(model: @clone, url: clones_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+
+  <p>つぶやき:<%= @clone.content %></p>
+  <%= form.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @clone, url: new_clone_path , local: true , method:"get")do |f| %>
+  <%= f.hidden_field :content %>
+  <%= f.submit "戻る"  , name:"back"%>
+  <% end %>

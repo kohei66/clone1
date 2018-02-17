@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>つぶやき</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clones.each do |clone| %>
+      <tr>
+        <td><%= clone.content %></td>
+        <td><%= link_to '詳細', clone , class: "btn btn-default" %></td>
+        <td><%= link_to '編集', edit_clone_path(clone), class: "btn btn-info" %></td>
+        <td><%= link_to '削除', clone, method: :delete, data: { confirm: '本当に消しちゃう?' }, class: "btn btn-warning"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規投稿', new_clone_path %>

@@ -23,7 +23,6 @@ class ClonesController < ApplicationController
 
   # GET /clones/1/edit
   def edit
-    @clone=Clone.find(params[:id])
   end
 
   # POST /clones
@@ -73,9 +72,7 @@ class ClonesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_clone
-      binding.pry
       @clone = Clone.find(params[:id])
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

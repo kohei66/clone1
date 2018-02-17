@@ -1,5 +1,5 @@
 class ClonesController < ApplicationController
-  before_action :set_clone, only: [:show, :edit, :update, :destroy]
+  before_action :set_clone, only: %i[show edit update destroy]
 
   # GET /clones
   # GET /clones.json
@@ -9,21 +9,19 @@ class ClonesController < ApplicationController
 
   # GET /clones/1
   # GET /clones/1.json
-  def show
-  end
+  def show; end
 
   # GET /clones/new
   def new
-    if params[:back]
-      @clone = Clone.new(clone_params)
-    else
-      @clone = Clone.new
-    end
+    @clone = if params[:back]
+               Clone.new(clone_params)
+             else
+               Clone.new
+             end
   end
 
   # GET /clones/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /clones
   # POST /clones.json
@@ -66,17 +64,18 @@ class ClonesController < ApplicationController
   end
 
   def confirm
-    @clone=Clone.new(clone_params)
+    @clone = Clone.new(clone_params)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_clone
-      @clone = Clone.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def clone_params
-      params.require(:clone).permit(:content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_clone
+    @clone = Clone.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def clone_params
+    params.require(:clone).permit(:content)
+  end
 end

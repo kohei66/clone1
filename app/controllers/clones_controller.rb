@@ -65,6 +65,7 @@ class ClonesController < ApplicationController
 
   def confirm
     @clone = Clone.new(clone_params)
+    render :new if @clone.invalid?
   end
 
   private
